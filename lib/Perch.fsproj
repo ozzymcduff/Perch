@@ -54,6 +54,7 @@
     <Compile Include="Enum.fs" />
     <Compile Include="Option.fs" />
     <Compile Include="Xml.fs" />
+    <Compile Include="Dict.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
