@@ -25,10 +25,6 @@ task :paket_bootstrap do
   end
 end
 
-task :paket_restore do
-  
-end
-
 task :default => ['build']
 
 desc "test using nunit console"
