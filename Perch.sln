@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{21A05630-FBC1-490C-82D8-D14CCA3DF53A}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Perch", "lib\Perch.fsproj", "{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests", "tests\Tests.fsproj", "{1E53D5C8-3B8D-4F9D-9F2F-D83340603128}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E53D5C8-3B8D-4F9D-9F2F-D83340603128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E53D5C8-3B8D-4F9D-9F2F-D83340603128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E53D5C8-3B8D-4F9D-9F2F-D83340603128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E53D5C8-3B8D-4F9D-9F2F-D83340603128}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
