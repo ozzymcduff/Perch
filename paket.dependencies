@@ -1,8 +1,8 @@
 source https://api.nuget.org/v3/index.json
 source https://www.nuget.org/api/v2/
 
+nuget FAKE
 nuget FSharp.Core
-nuget FsUnit 1.3.1.0 framework: >= net45
-nuget NUnit 2.6.4 framework: >= net45
+nuget FsUnit
+nuget NUnit
 nuget NUnit.Runners
-nuget FSharpLint

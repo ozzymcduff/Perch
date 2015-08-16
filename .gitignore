@@ -52,7 +52,12 @@ obj/
 _ReSharper*/
 build/
 *.sublime-workspace
+# nuget
 packages/
+# vs2015
 .vs
+# monodevelop and xamarin
 *.userprefs
+# fake build tool
+.fake
 
