@@ -29,3 +29,12 @@ type ``XElem enum``() =
             |> XElem.valueOf
             |> should equal null
 
+[<TestFixture>] 
+type ``XElem enum2``() =
+    let xml = Xml.parse "<Customer><Name>Test</Name></Customer>"
+
+    [<Test>] member test.
+        ``XElem.withName Name value of`` ()=
+        XElem.withName xml.Root (XName.Simple("Name")) 
+            |> XElem.valueOf
+            |> should equal ("Test")

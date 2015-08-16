@@ -65,7 +65,7 @@ module XElem=
         node.Elements()
 
     let withName (node : XElement) name=
-        node.Element(name)
+        node.Element(XName.get name)
 
     let valueOf (el: XElement)=
         //let el = node.Element(XName.get name)
