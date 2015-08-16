@@ -3,6 +3,8 @@ open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Quotations
 open Microsoft.FSharp.Quotations.DerivedPatterns
 open Microsoft.FSharp.Quotations.Patterns
+// Originally from stackoverflow answer
+// http://stackoverflow.com/questions/3151099
 
     module Option=
 
