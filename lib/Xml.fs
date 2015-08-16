@@ -64,8 +64,8 @@ module XElem=
     let elements (node : XElement)=
         node.Elements()
 
-    let valueOf (node: XElement) name=
-        let el = node.Element(XName.get name)
+    let valueOf (el: XElement)=
+        //let el = node.Element(XName.get name)
         let nil = el.Attributes() 
                    |> Seq.tryFind (fun a->a.Name.LocalName = "nil")
 
@@ -76,9 +76,11 @@ module XElem=
     let value name (value: obj)=
         let content = 
             match value with
-                | null -> XAttr.nil :> obj
+                | null -> box XAttr.nil 
+                // I want to do this: Option<_>, but it turns into Option<obj> :
+                // | :? Option<_> as x -> if x.IsNone then box XAttr.nil else box( x.Value.ToString() )
                 | Option.UnionCase <@ None @> _ -> box XAttr.nil
-                | Option.UnionCase <@ Some @> v -> box( v.ToString() )
+                | Option.UnionCase <@ Some @> [v] -> box( v.ToString() )
                 | _ as v -> box( v.ToString() )
         XElement(XName.get name, content)
 

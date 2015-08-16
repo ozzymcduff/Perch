@@ -2,7 +2,7 @@
 open NUnit.Framework
 open FsUnit
 open Perch
-open System.Text
+
 type Case = 
     |Null=0
     |None=1

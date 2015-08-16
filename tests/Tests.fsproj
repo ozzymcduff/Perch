@@ -54,6 +54,7 @@
     <Compile Include="EnumTests.fs" />
     <Compile Include="OptionTests.fs" />
     <Compile Include="DictTests.fs" />
+    <Compile Include="XmlTests.fs" />
     <None Include="Script.fsx" />
     <Content Include="paket.references" />
     <Content Include="app.config" />
@@ -67,6 +68,8 @@
       <Name>Perch</Name>
       <Project>{CEA1F0D2-4D6E-4FBE-A83F-00978DDCB629}</Project>
     </ProjectReference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
