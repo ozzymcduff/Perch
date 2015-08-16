@@ -82,7 +82,6 @@ module XElem=
                 | null -> box XAttr.nil 
                 // I want to do this: Option<_>, but it turns into Option<obj> :
                 // | :? Option<_> as x -> if x.IsNone then box XAttr.nil else box( x.Value.ToString() )
-                | Option.UnionCase <@ None @> _ -> box XAttr.nil
                 | Option.UnionCase <@ Some @> [v] -> box( v.ToString() )
                 | _ as v -> box( v.ToString() )
         XElement(XName.get name, content)
