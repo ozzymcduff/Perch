@@ -85,7 +85,7 @@ module XElem=
 
 module XDoc=
     let create content =
-        XDocument(content |> Seq.map box)   
+        XDocument(content |> Seq.map box)
     let root (node : XDocument)=
         node.Root
 
@@ -93,6 +93,3 @@ module Xml=
 
     let parse input=
         XDocument.Parse(input)
-
-
-
