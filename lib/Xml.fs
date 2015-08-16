@@ -77,8 +77,8 @@ module XElem=
         let content = 
             match value with
                 | null -> XAttr.nil :> obj
-                | Option.UnionCase <@ None @> [] -> box XAttr.nil
-                | Option.UnionCase <@ Some @> [v] -> box( v.ToString() )
+                | Option.UnionCase <@ None @> _ -> box XAttr.nil
+                | Option.UnionCase <@ Some @> v -> box( v.ToString() )
                 | _ as v -> box( v.ToString() )
         XElement(XName.get name, content)
 
