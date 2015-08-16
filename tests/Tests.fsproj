@@ -50,8 +50,10 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="CustomerGender.fs" />
     <Compile Include="EnumTests.fs" />
     <Compile Include="OptionTests.fs" />
+    <Compile Include="DictTests.fs" />
     <None Include="Script.fsx" />
     <Content Include="paket.references" />
     <Content Include="app.config" />
