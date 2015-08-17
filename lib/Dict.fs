@@ -4,10 +4,10 @@ open System.Linq
 
     module Dict =
         let fromSeq map list : IDictionary<'a,'b> = 
-            Enumerable.ToDictionary(list, System.Func<'b,'a>(map), System.Func<'b,'b>(id)) 
+            Enumerable.ToDictionary(list, System.Func<'b,'a>(map), System.Func<'b,'b>(id), HashIdentity.Structural) 
                 :> IDictionary<'a,'b>
 
-        let get (hash:IDictionary<_,_>) key =
+        let get key (hash:IDictionary<_,_>) =
             hash.[key]
         
         let keys (hash:IDictionary<'a,_>) : 'a array =
@@ -16,7 +16,7 @@ open System.Linq
         let values (hash:IDictionary<_,'b>) : 'b array =
             hash.Values |> Seq.toArray
 
-        let tryGet (hash:IDictionary<'a,'b>) (key : 'a) : 'b option =
+        let tryGet (key : 'a) (hash:IDictionary<'a,'b>) : 'b option =
             if hash.ContainsKey key then Some(hash.[key]) else None
 
         let toTuples (hash:IDictionary<'a,'b>) : ('a*'b) seq =

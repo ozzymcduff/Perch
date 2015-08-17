@@ -35,6 +35,7 @@ type ``XElem enum2``() =
 
     [<Test>] member test.
         ``XElem.withName Name value of`` ()=
-        XElem.withName xml.Root (XName.Simple("Name")) 
+            xml.Root 
+            |> XElem.withName (XName.Simple("Name")) 
             |> XElem.valueOf
             |> should equal ("Test")
