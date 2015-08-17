@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Enum.fs" />
-    <Compile Include="Option.fs" />
     <Compile Include="Xml.fs" />
     <Compile Include="Hash.fs" />
     <None Include="paket.references" />

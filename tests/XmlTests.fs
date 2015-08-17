@@ -5,8 +5,9 @@ open Perch
 open System.Text
 
 [<TestFixture>] 
-type ``XElem enum``() =
+type ``XElem``() =
     let t = XName.Simple("t")
+    let xml = Xml.parse "<Customer><Name>Test</Name></Customer>"
 
     [<Test>] member test.
         ``XElem.value Female`` ()=
@@ -14,13 +15,23 @@ type ``XElem enum``() =
             |> XElem.valueOf
             |> should equal (CustomerGender.Female.ToString())
     [<Test>] member test.
+        ``XElem.value Female?`` ()=
+        XElem.value t ( "Female" )
+            |> XElem.valueOf
+            |> should equal ("Female")
+    [<Test>] member test.
+        ``XElem.value Female = null`` ()=
+        XElem.value t ( null )
+            |> XElem.valueOf
+            |> should equal (null)
+    [<Test>] member test.
         ``XElem.value Some Female`` ()=
-        XElem.value t (Some(CustomerGender.Female))
+        XElem.optionValue t (Some(CustomerGender.Female))
             |> XElem.valueOf
             |> should equal (CustomerGender.Female.ToString())
     [<Test>] member test.
         ``XElem.value None`` ()=
-        XElem.value t (None) 
+        XElem.optionValue t (None) 
             |> XElem.valueOf
             |> should equal null
     [<Test>] member test.
@@ -28,11 +39,6 @@ type ``XElem enum``() =
         XElem.value t (null) 
             |> XElem.valueOf
             |> should equal null
-
-[<TestFixture>] 
-type ``XElem enum2``() =
-    let xml = Xml.parse "<Customer><Name>Test</Name></Customer>"
-
     [<Test>] member test.
         ``XElem.withName Name value of`` ()=
             xml.Root 

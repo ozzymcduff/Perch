@@ -4,7 +4,7 @@ open System.Linq
 
     module Enum=
         let tryParse s :'a option when 'a:enum<'b> =
-            match System.Enum.TryParse s with
+            match System.Enum.TryParse (s, true) with
             | true, v -> Some v
             | _ -> None
         

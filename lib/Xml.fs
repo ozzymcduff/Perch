@@ -76,14 +76,19 @@ module XElem=
             | None -> el.Value
             | Some v -> if v.Value = "true" then null else el.Value
 
-    let value name (value: obj)=
+    let value name value=
+        let content = 
+            if box(value) = null then 
+                box XAttr.nil 
+            else 
+                box (value.ToString())
+        XElement(XName.get name, content)
+
+    let optionValue name value =
         let content = 
             match value with
-                | null -> box XAttr.nil 
-                // I want to do this: Option<_>, but it turns into Option<obj> :
-                // | :? Option<_> as x -> if x.IsNone then box XAttr.nil else box( x.Value.ToString() )
-                | Option.UnionCase <@ Some @> [v] -> box( v.ToString() )
-                | _ as v -> box( v.ToString() )
+                | None -> box XAttr.nil 
+                | Some x -> box( x.ToString() )
         XElement(XName.get name, content)
 
 
