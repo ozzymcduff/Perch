@@ -53,7 +53,7 @@
     <Compile Include="CustomerGender.fs" />
     <Compile Include="EnumTests.fs" />
     <Compile Include="OptionTests.fs" />
-    <Compile Include="DictTests.fs" />
+    <Compile Include="HashTests.fs" />
     <Compile Include="XmlTests.fs" />
     <None Include="Script.fsx" />
     <Content Include="paket.references" />

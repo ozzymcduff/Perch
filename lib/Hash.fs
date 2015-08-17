@@ -2,7 +2,7 @@
 open System.Collections.Generic
 open System.Linq
 
-    module Dict =
+    module Hash =
         let fromSeq map list : IDictionary<'a,'b> = 
             Enumerable.ToDictionary(list, System.Func<'b,'a>(map), System.Func<'b,'b>(id), HashIdentity.Structural) 
                 :> IDictionary<'a,'b>

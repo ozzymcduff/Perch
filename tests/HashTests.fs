@@ -4,14 +4,14 @@ open FsUnit
 open Perch
 
 [<TestFixture>] 
-type ``Dictionary tests``() =
+type ``Hash tests``() =
 
     let customerGenders = Enum.getValues<CustomerGender>()
 
     [<Test>] member test.
         ``Can create`` ()=
-        Dict.fromSeq int32 customerGenders 
-            |> Dict.toTuples 
+        Hash.fromSeq int32 customerGenders 
+            |> Hash.toTuples 
             |> should equal ([ 
                                 (0,CustomerGender.Other)
                                 (1,CustomerGender.Male)
@@ -19,12 +19,12 @@ type ``Dictionary tests``() =
                 ])
     [<Test>] member test.
         ``tryGet`` ()=
-        (Dict.fromSeq int32 customerGenders)
-            |> Dict.tryGet 0
+        (Hash.fromSeq int32 customerGenders)
+            |> Hash.tryGet 0
             |> should equal (Some(CustomerGender.Other))
 
     [<Test>] member test.
         ``get`` ()=
-        Dict.fromSeq int32 (Enum.getValues<CustomerGender>()) 
-            |> Dict.get 1
+        Hash.fromSeq int32 (Enum.getValues<CustomerGender>()) 
+            |> Hash.get 1
             |> should equal CustomerGender.Male
