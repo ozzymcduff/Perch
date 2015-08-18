@@ -1,11 +1,14 @@
 ﻿namespace Perch
 open System.Collections.Generic
 open System.Linq
+open System
 
     module Hash =
-        let fromSeq map list : IDictionary<'a,'b> = 
-            Enumerable.ToDictionary(list, System.Func<'b,'a>(map), System.Func<'b,'b>(id), HashIdentity.Structural) 
-                :> IDictionary<'a,'b>
+        let fromSeq keyMap valueMap list : IDictionary<'a,'c> = 
+            Enumerable.ToDictionary(list, 
+                Func<'b,'a>(keyMap), Func<'b,'c>(valueMap), 
+                HashIdentity.Structural) 
+                    :> IDictionary<'a,'c>
 
         let get key (hash:IDictionary<_,_>) =
             hash.[key]
@@ -18,6 +21,15 @@ open System.Linq
 
         let tryGet (key : 'a) (hash:IDictionary<'a,'b>) : 'b option =
             if hash.ContainsKey key then Some(hash.[key]) else None
+
+        let keyValue key value =
+            new KeyValuePair<_,_>(key,value)
+
+        let toSeq (hash:IDictionary<_,_>)=
+            hash :> seq<_>
+
+        let toArray (hash:IDictionary<_,_>)=
+            hash |> Seq.toArray
 
         let toTuples (hash:IDictionary<'a,'b>) : ('a*'b) seq =
             let toTuple (kv:KeyValuePair<'a,'b>)=

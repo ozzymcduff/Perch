@@ -10,7 +10,7 @@ type ``Hash tests``() =
 
     [<Test>] member test.
         ``Can create`` ()=
-        Hash.fromSeq int32 customerGenders 
+        Hash.fromSeq int32 id customerGenders 
             |> Hash.toTuples 
             |> should equal ([ 
                                 (0,CustomerGender.Other)
@@ -19,12 +19,12 @@ type ``Hash tests``() =
                 ])
     [<Test>] member test.
         ``tryGet`` ()=
-        (Hash.fromSeq int32 customerGenders)
+        (Hash.fromSeq int32 id customerGenders)
             |> Hash.tryGet 0
             |> should equal (Some(CustomerGender.Other))
 
     [<Test>] member test.
         ``get`` ()=
-        Hash.fromSeq int32 (Enum.getValues<CustomerGender>()) 
+        Hash.fromSeq int32 id (Enum.getValues<CustomerGender>()) 
             |> Hash.get 1
             |> should equal CustomerGender.Male
