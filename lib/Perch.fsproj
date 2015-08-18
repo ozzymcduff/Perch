@@ -54,6 +54,9 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Array.fs" />
+    <Compile Include="Seq.fs">
+    </Compile>
     <Compile Include="Enum.fs" />
     <Compile Include="Xml.fs" />
     <Compile Include="Hash.fs" />

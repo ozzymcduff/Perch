@@ -11,6 +11,6 @@ open System.Linq
         let parse v =
             tryParse(v).Value
 
-        let getValues<'t> x = 
+        let getValues<'t> ()= 
             let values = System.Enum.GetValues (typeof<'t>) 
-            Enumerable.Cast<'t>(values)
+            Enumerable.Cast<'t> values //Array.unbox
