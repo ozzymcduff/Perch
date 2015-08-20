@@ -1,0 +1,6 @@
+type project
+id Perch
+version 0.1.0
+authors wallymathieu
+description
+    Helper methods to f#-ify some c#-api's

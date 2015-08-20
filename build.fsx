@@ -11,13 +11,18 @@ let appReferences  =
 let testReferences = 
     !! "tests/*.fsproj"
 
+let solutionFile  = "Perch.sln"
+
 Target "build" (fun _ ->
-    MSBuildDebug libDir "Build" appReferences 
-        |> Log "LibBuild-Output: "
+    !! solutionFile
+    |> MSBuildDebug "" "Rebuild"
+    |> ignore
 )
-Target "build_test" (fun _ ->
-    MSBuildDebug testDir "Build" testReferences 
-        |> Log "LibBuild-Output: "
+
+Target "build_release" (fun _ ->
+    !! solutionFile
+    |> MSBuildRelease "" "Rebuild"
+    |> ignore
 )
 
 Target "test" (fun _ ->  
@@ -28,14 +33,30 @@ Target "test" (fun _ ->
                 OutputFile = testDir + "TestResults.xml"})
 )
 
+Target "pack" (fun _ ->
+    Paket.Pack(fun p ->
+        { p with
+            OutputPath = libDir})
+)
+
+Target "clean" (fun _ ->
+    CleanDirs [libDir; testDir]
+)
+
+Target "push" (fun _ ->
+    Paket.Push(fun p ->
+        { p with
+            WorkingDir = libDir })
+)
+
+
 Target "install" DoNothing
 
+"build_release"
+    ==> "pack"
+
 "build"
-    ==> "build_test"
-
-"build_test"
     ==> "test"
-
 
 
 RunTargetOrDefault "build"
